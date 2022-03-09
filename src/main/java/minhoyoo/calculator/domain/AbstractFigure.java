@@ -7,10 +7,6 @@ public abstract class AbstractFigure implements Figure {
 	private final List<Point> points;
 
 	protected AbstractFigure(List<Point> points) {
-		if (points.size() != size()) {
-			throw new IllegalArgumentException(size() + "개의 좌표가 아닙니다.");
-		}
-
 		this.points = points;
 	}
 

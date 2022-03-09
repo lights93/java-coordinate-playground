@@ -3,15 +3,17 @@ package minhoyoo.calculator.domain;
 import java.util.List;
 
 public class Line extends AbstractFigure {
-	public static final int LINE_SIZE = 2;
+	public static final int SIZE = 2;
 
 	public Line(List<Point> points) {
 		super(points);
+		checkValid(points);
 	}
 
-	@Override
-	public int size() {
-		return LINE_SIZE;
+	private void checkValid(List<Point> points) {
+		if (points.size() != SIZE) {
+			throw new IllegalArgumentException(SIZE + "개의 좌표가 아닙니다.");
+		}
 	}
 
 	@Override

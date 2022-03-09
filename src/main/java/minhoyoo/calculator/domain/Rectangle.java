@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Rectangle extends AbstractFigure {
-	public static final int RECTANGLE_SIZE = 4;
+	public static final int SIZE = 4;
 
 	private final double width;
 	private final double height;
@@ -21,17 +21,16 @@ public class Rectangle extends AbstractFigure {
 	}
 
 	private void checkValid(List<Point> points) {
+		if (points.size() != SIZE) {
+			throw new IllegalArgumentException(SIZE + "개의 좌표가 아닙니다.");
+		}
+
 		if (!(points.get(0).getX() == points.get(1).getX()
 			&& points.get(2).getX() == points.get(3).getX()
 			&& points.get(0).getY() == points.get(2).getY()
 			&& points.get(1).getY() == points.get(3).getY())) {
 			throw new IllegalArgumentException("직사각형의 좌표가 아닙니다.");
 		}
-	}
-
-	@Override
-	public int size() {
-		return RECTANGLE_SIZE;
 	}
 
 	@Override

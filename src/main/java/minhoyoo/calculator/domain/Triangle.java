@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class Triangle extends AbstractFigure {
-	public static final int TRIANGLE_SIZE = 3;
+	public static final int SIZE = 3;
 
 	private final List<Double> lengths;
 
 	public Triangle(List<Point> points) {
 		super(points);
+
+		checkValid(points);
 
 		lengths = Arrays.asList(
 			new Line(Arrays.asList(points.get(0), points.get(1))).calculate(),
@@ -19,9 +21,10 @@ public class Triangle extends AbstractFigure {
 		);
 	}
 
-	@Override
-	public int size() {
-		return TRIANGLE_SIZE;
+	private void checkValid(List<Point> points) {
+		if (points.size() != SIZE) {
+			throw new IllegalArgumentException(SIZE + "개의 좌표가 아닙니다.");
+		}
 	}
 
 	@Override

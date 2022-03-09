@@ -18,9 +18,9 @@ public class FigureFactory {
 	private static Map<Integer, Function<List<Point>, Figure>> sizeToFigure() {
 		Map<Integer, Function<List<Point>, Figure>> sizeToFigure = new HashMap<>();
 
-		sizeToFigure.put(Line.LINE_SIZE, Line::new);
-		sizeToFigure.put(Rectangle.RECTANGLE_SIZE, Rectangle::new);
-		sizeToFigure.put(Triangle.TRIANGLE_SIZE, Triangle::new);
+		sizeToFigure.put(Line.SIZE, Line::new);
+		sizeToFigure.put(Rectangle.SIZE, Rectangle::new);
+		sizeToFigure.put(Triangle.SIZE, Triangle::new);
 
 		return sizeToFigure;
 	}
