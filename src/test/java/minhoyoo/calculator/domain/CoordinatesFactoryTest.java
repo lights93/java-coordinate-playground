@@ -36,7 +36,7 @@ class CoordinatesFactoryTest {
 	@DisplayName("문자열을 좌표로 변환시 에러 발생")
 	@ParameterizedTest
 	@EmptySource
-	@CsvSource(value = {"(10,10)", "(10,10)-(14,15)-(14,16)"})
+	@CsvSource(value = {"(10,10)", "(10,10)-(14,15)-(14,16)", "(10,10)-(14,15)-(14,16)-(14,17)-(14,18)"})
 	void fromError(String input) {
 
 		assertThatExceptionOfType(IllegalArgumentException.class)

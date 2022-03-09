@@ -7,6 +7,10 @@ public class Line extends Coordinates {
 
 	protected Line(List<Coordinate> elements) {
 		super(elements);
+
+		if (elements.size() != 2) {
+			throw new IllegalArgumentException("직선의 좌표가 아닙니다.");
+		}
 	}
 
 	@Override
