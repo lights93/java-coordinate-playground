@@ -3,16 +3,14 @@ package minhoyoo.calculator.domain;
 import java.util.List;
 import java.util.Objects;
 
-public class Coordinates {
+public abstract class Coordinates {
 	private final List<Coordinate> elements;
 
-	private Coordinates(List<Coordinate> elements) {
+	protected Coordinates(List<Coordinate> elements) {
 		this.elements = elements;
 	}
 
-	public static Coordinates from(List<Coordinate> coordinates) {
-		return new Coordinates(coordinates);
-	}
+	public abstract double calculate();
 
 	@Override
 	public boolean equals(Object o) {

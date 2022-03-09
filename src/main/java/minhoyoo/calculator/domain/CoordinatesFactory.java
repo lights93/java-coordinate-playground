@@ -15,7 +15,7 @@ public class CoordinatesFactory {
 	public static Coordinates from(String input) {
 		String[] split = input.split(COORDINATE_SEPARATOR);
 		if(split.length == LINE_SIZE) {
-			return Coordinates.from(parseCoordinates(split));
+			return new Line(parseCoordinates(split));
 		}
 
 		throw new IllegalArgumentException("잘못된 좌표 개수 입니다.");
