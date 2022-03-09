@@ -2,7 +2,7 @@ package minhoyoo.calculator.service;
 
 import minhoyoo.calculator.domain.Figure;
 import minhoyoo.calculator.domain.FigureFactory;
-import minhoyoo.calculator.domain.FigureView;
+import minhoyoo.calculator.utils.FigureView;
 import minhoyoo.calculator.view.Input;
 import minhoyoo.calculator.view.Output;
 

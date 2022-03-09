@@ -1,9 +1,16 @@
-package minhoyoo.calculator.domain;
+package minhoyoo.calculator.utils;
 
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import minhoyoo.calculator.domain.Figure;
+import minhoyoo.calculator.domain.FigureFactory;
+import minhoyoo.calculator.domain.Line;
+import minhoyoo.calculator.domain.Rectangle;
+import minhoyoo.calculator.domain.Triangle;
+import minhoyoo.calculator.utils.FigureView;
 
 class FigureViewTest {
 	@DisplayName("좌표 찍기")

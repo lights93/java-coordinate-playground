@@ -1,7 +1,13 @@
-package minhoyoo.calculator.domain;
+package minhoyoo.calculator.utils;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import minhoyoo.calculator.domain.Figure;
+import minhoyoo.calculator.domain.Line;
+import minhoyoo.calculator.domain.Point;
+import minhoyoo.calculator.domain.Rectangle;
+import minhoyoo.calculator.domain.Triangle;
 
 public class FigureView {
 	private static final int MAX_VALUE = 24;
