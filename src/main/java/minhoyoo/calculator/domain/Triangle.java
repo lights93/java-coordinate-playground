@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Triangle implements Coordinates {
+public class Triangle implements Figure {
 	public static final int SIZE = 3;
 
 	private final List<Double> lengths;

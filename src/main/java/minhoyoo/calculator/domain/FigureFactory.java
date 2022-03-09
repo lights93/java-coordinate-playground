@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CoordinatesFactory {
+public class FigureFactory {
 	private static final String COORDINATE_SEPARATOR = "-";
 	private static final String POINT_SEPARATOR = ",";
 
-	private CoordinatesFactory() {
+	private FigureFactory() {
 	}
 
-	public static Coordinates from(String input) {
-		String[] split = input.split(COORDINATE_SEPARATOR);
+	public static Figure from(String coordinates) {
+		String[] split = coordinates.split(COORDINATE_SEPARATOR);
 		if (split.length == Line.SIZE) {
 			return new Line(parseCoordinates(split));
 		}
@@ -30,7 +30,7 @@ public class CoordinatesFactory {
 
 	private static List<Coordinate> parseCoordinates(String[] split) {
 		return Arrays.stream(split)
-			.map(CoordinatesFactory::parseCoordinate)
+			.map(FigureFactory::parseCoordinate)
 			.collect(Collectors.toList());
 	}
 

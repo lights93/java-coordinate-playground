@@ -3,7 +3,7 @@ package minhoyoo.calculator.domain;
 import java.util.List;
 import java.util.Objects;
 
-public class Line implements Coordinates {
+public class Line implements Figure {
 	public static final int SIZE = 2;
 
 	private final List<Coordinate> elements;

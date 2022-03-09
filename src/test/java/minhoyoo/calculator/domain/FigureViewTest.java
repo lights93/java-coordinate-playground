@@ -5,13 +5,13 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class CoordinatesViewTest {
+class FigureViewTest {
 	@DisplayName("좌표 찍기")
 	@Test
 	void create() {
-		Coordinates coordinates = CoordinatesFactory.from("(2,23)-(3,22)");
+		Figure figure = FigureFactory.from("(2,23)-(3,22)");
 
-		String actual = CoordinatesView.create(coordinates);
+		String actual = FigureView.create(figure);
 
 		String expected = "  |                                                                        \n"
 			+ "24|                                                                        \n"
@@ -94,27 +94,27 @@ class CoordinatesViewTest {
 	@DisplayName("직선 결과 메시지 생성")
 	@Test
 	void makeLineMessage() {
-		Line line = (Line)CoordinatesFactory.from("(10,10)-(14,15)");
+		Line line = (Line)FigureFactory.from("(10,10)-(14,15)");
 
-		assertThat(CoordinatesView.makeResultMessage(line))
+		assertThat(FigureView.makeResultMessage(line))
 			.isEqualTo("두 점 사이의 거리는 6.403124");
 	}
 
 	@DisplayName("사각형 결과 메시지 생성")
 	@Test
 	void makeRectangleMessage() {
-		Rectangle rectangle = (Rectangle)CoordinatesFactory.from("(10,10)-(22,10)-(22,18)-(10,18)");
+		Rectangle rectangle = (Rectangle)FigureFactory.from("(10,10)-(22,10)-(22,18)-(10,18)");
 
-		assertThat(CoordinatesView.makeResultMessage(rectangle))
+		assertThat(FigureView.makeResultMessage(rectangle))
 			.isEqualTo("사각형 넓이는 96");
 	}
 
 	@DisplayName("사각형 결과 메시지 생성")
 	@Test
 	void makeTriangleMessage() {
-		Triangle triangle = (Triangle)CoordinatesFactory.from("(10,10)-(14,15)-(20,8)");
+		Triangle triangle = (Triangle)FigureFactory.from("(10,10)-(14,15)-(20,8)");
 
-		assertThat(CoordinatesView.makeResultMessage(triangle))
+		assertThat(FigureView.makeResultMessage(triangle))
 			.isEqualTo("삼각형 넓이는 29.0");
 	}
 }

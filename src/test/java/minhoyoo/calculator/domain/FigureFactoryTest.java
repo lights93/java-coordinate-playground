@@ -10,11 +10,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EmptySource;
 
-class CoordinatesFactoryTest {
+class FigureFactoryTest {
 	@DisplayName("문자열을 직선으로 변환")
 	@Test
 	void createLine() {
-		Coordinates actual = CoordinatesFactory.from("(10,10)-(14,15)");
+		Figure actual = FigureFactory.from("(10,10)-(14,15)");
 
 		assertThat(actual)
 			.isEqualTo(new Line(Arrays.asList(Coordinate.create(10, 10), Coordinate.create(14, 15))));
@@ -23,7 +23,7 @@ class CoordinatesFactoryTest {
 	@DisplayName("문자열을 사각형으로 변환")
 	@Test
 	void createRectangle() {
-		Coordinates actual = CoordinatesFactory.from("(10,10)-(22,10)-(22,18)-(10,18)");
+		Figure actual = FigureFactory.from("(10,10)-(22,10)-(22,18)-(10,18)");
 
 		assertThat(actual)
 			.isEqualTo(new Rectangle(Arrays.asList(
@@ -36,7 +36,7 @@ class CoordinatesFactoryTest {
 	@DisplayName("문자열을 삼각형으로 변환")
 	@Test
 	void createTriangle() {
-		Coordinates actual = CoordinatesFactory.from("(10,10)-(22,18)-(10,18)");
+		Figure actual = FigureFactory.from("(10,10)-(22,18)-(10,18)");
 
 		assertThat(actual)
 			.isEqualTo(new Triangle(Arrays.asList(
@@ -52,7 +52,7 @@ class CoordinatesFactoryTest {
 	void fromError(String input) {
 
 		assertThatExceptionOfType(IllegalArgumentException.class)
-			.isThrownBy(() -> CoordinatesFactory.from(input))
+			.isThrownBy(() -> FigureFactory.from(input))
 			.withMessage("잘못된 좌표 개수 입니다.");
 	}
 }

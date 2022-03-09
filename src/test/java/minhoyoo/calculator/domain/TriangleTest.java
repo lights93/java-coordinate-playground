@@ -24,7 +24,7 @@ class TriangleTest {
 	@DisplayName("삼각형 넓이 계산")
 	@Test
 	void calculate() {
-		Triangle triangle = (Triangle)CoordinatesFactory.from("(10,10)-(14,15)-(20,8)");
+		Triangle triangle = (Triangle)FigureFactory.from("(10,10)-(14,15)-(20,8)");
 
 		assertThat(triangle.calculate()).isEqualTo(29.0, offset(0.00099));
 	}

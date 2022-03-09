@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class Rectangle implements Coordinates {
+public class Rectangle implements Figure {
 	public static final int SIZE = 4;
 
 	private final List<Coordinate> elements;

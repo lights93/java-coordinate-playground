@@ -1,6 +1,6 @@
 package minhoyoo.calculator.domain;
 
-public class CoordinatesView {
+public class FigureView {
 	private static final int MAX_VALUE = 24;
 	private static final int ONE_LINE_SIZE = 76;
 	private static final String DEFAULT_VIEW = defaultView();
@@ -8,7 +8,7 @@ public class CoordinatesView {
 	public static final int LEFT_TOP = 80;
 	public static final String DISPLAY_VALUE = "*";
 
-	private CoordinatesView() {
+	private FigureView() {
 	}
 
 	private static String defaultView() {
@@ -29,10 +29,10 @@ public class CoordinatesView {
 		return stringBuilder.toString();
 	}
 
-	public static String create(Coordinates coordinates) {
+	public static String create(Figure figure) {
 		StringBuilder stringBuilder = new StringBuilder(DEFAULT_VIEW);
 
-		for (Coordinate coordinate : coordinates.getElements()) {
+		for (Coordinate coordinate : figure.getElements()) {
 			int start = LEFT_TOP
 				+ ONE_LINE_SIZE * BLOCK_SIZE * (MAX_VALUE - coordinate.getY())
 				+ BLOCK_SIZE * (coordinate.getX() - 1);
@@ -42,17 +42,17 @@ public class CoordinatesView {
 		return stringBuilder.toString();
 	}
 
-	public static String makeResultMessage(Coordinates coordinates) {
-		if (coordinates instanceof Line) {
-			return String.format("두 점 사이의 거리는 %.6f", coordinates.calculate());
+	public static String makeResultMessage(Figure figure) {
+		if (figure instanceof Line) {
+			return String.format("두 점 사이의 거리는 %.6f", figure.calculate());
 		}
 
-		if (coordinates instanceof Rectangle) {
-			return String.format("사각형 넓이는 %.0f", coordinates.calculate());
+		if (figure instanceof Rectangle) {
+			return String.format("사각형 넓이는 %.0f", figure.calculate());
 		}
 
-		if (coordinates instanceof Triangle) {
-			return String.format("삼각형 넓이는 %.1f", coordinates.calculate());
+		if (figure instanceof Triangle) {
+			return String.format("삼각형 넓이는 %.1f", figure.calculate());
 		}
 
 		throw new IllegalArgumentException();

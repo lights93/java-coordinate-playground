@@ -12,8 +12,8 @@ public class Output {
 		System.out.println(message);
 	}
 
-	public static void printCoordinates(String coordinatesView) {
-		System.out.println(coordinatesView);
+	public static void printFigureView(String figureView) {
+		System.out.println(figureView);
 	}
 
 	public static void printResult(String result) {

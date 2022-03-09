@@ -12,7 +12,7 @@ class RectangleTest {
 	@DisplayName("사각형 거리 계산")
 	@Test
 	void calculate() {
-		Rectangle rectangle = (Rectangle)CoordinatesFactory.from("(10,10)-(10,11)-(11,10)-(11,11)");
+		Rectangle rectangle = (Rectangle)FigureFactory.from("(10,10)-(10,11)-(11,10)-(11,11)");
 
 		assertThat(rectangle.calculate()).isEqualTo(1);
 	}

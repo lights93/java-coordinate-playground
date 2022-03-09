@@ -2,7 +2,7 @@ package minhoyoo.calculator.domain;
 
 import java.util.List;
 
-public interface Coordinates {
+public interface Figure {
 	double calculate();
 
 	List<Coordinate> getElements();
