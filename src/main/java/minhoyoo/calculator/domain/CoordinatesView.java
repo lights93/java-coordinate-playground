@@ -51,6 +51,10 @@ public class CoordinatesView {
 			return String.format("사각형 넓이는 %.0f", coordinates.calculate());
 		}
 
-		return null;
+		if (coordinates instanceof Triangle) {
+			return String.format("삼각형 넓이는 %.1f", coordinates.calculate());
+		}
+
+		throw new IllegalArgumentException();
 	}
 }

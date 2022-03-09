@@ -108,4 +108,13 @@ class CoordinatesViewTest {
 		assertThat(CoordinatesView.makeResultMessage(rectangle))
 			.isEqualTo("사각형 넓이는 96");
 	}
+
+	@DisplayName("사각형 결과 메시지 생성")
+	@Test
+	void makeTriangleMessage() {
+		Triangle triangle = (Triangle)CoordinatesFactory.from("(10,10)-(14,15)-(20,8)");
+
+		assertThat(CoordinatesView.makeResultMessage(triangle))
+			.isEqualTo("삼각형 넓이는 29.0");
+	}
 }
