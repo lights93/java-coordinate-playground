@@ -3,6 +3,8 @@ package minhoyoo.calculator.domain;
 import java.util.List;
 
 public class Line extends Coordinates {
+	public static final int SIZE = 2;
+
 	protected Line(List<Coordinate> elements) {
 		super(elements);
 	}

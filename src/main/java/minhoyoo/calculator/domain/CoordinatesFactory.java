@@ -7,15 +7,18 @@ import java.util.stream.Collectors;
 public class CoordinatesFactory {
 	private static final String COORDINATE_SEPARATOR = "-";
 	private static final String POINT_SEPARATOR = ",";
-	public static final int LINE_SIZE = 2;
 
 	private CoordinatesFactory() {
 	}
 
 	public static Coordinates from(String input) {
 		String[] split = input.split(COORDINATE_SEPARATOR);
-		if(split.length == LINE_SIZE) {
+		if (split.length == Line.SIZE) {
 			return new Line(parseCoordinates(split));
+		}
+
+		if (split.length == Rectangle.SIZE) {
+			return new Rectangle(parseCoordinates(split));
 		}
 
 		throw new IllegalArgumentException("잘못된 좌표 개수 입니다.");

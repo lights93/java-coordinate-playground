@@ -2,7 +2,7 @@ package minhoyoo.calculator.domain;
 
 import java.util.Objects;
 
-public class Coordinate {
+public class Coordinate implements Comparable<Coordinate> {
 	private static final int MIN_VALUE = 1;
 	private static final int MAX_VALUE = 24;
 	private final int x;
@@ -46,5 +46,14 @@ public class Coordinate {
 	@Override
 	public int hashCode() {
 		return Objects.hash(x, y);
+	}
+
+	@Override
+	public int compareTo(Coordinate that) {
+		if (this.x != that.x) {
+			return Integer.compare(this.x, that.x);
+		}
+
+		return Integer.compare(this.y, that.y);
 	}
 }
