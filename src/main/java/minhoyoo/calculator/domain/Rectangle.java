@@ -1,5 +1,6 @@
 package minhoyoo.calculator.domain;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -7,8 +8,8 @@ import java.util.Objects;
 public class Rectangle extends Coordinates {
 	public static final int SIZE = 4;
 
-	private final int width;
-	private final int height;
+	private final double width;
+	private final double height;
 
 	protected Rectangle(List<Coordinate> elements) {
 		super(elements);
@@ -19,8 +20,8 @@ public class Rectangle extends Coordinates {
 			throw new IllegalArgumentException("직사각형의 좌표가 아닙니다.");
 		}
 
-		width = elements.get(3).getX() - elements.get(0).getX();
-		height = elements.get(3).getY() - elements.get(0).getY();
+		width = new Line(Arrays.asList(elements.get(0), elements.get(1))).calculate();
+		height = new Line(Arrays.asList(elements.get(0), elements.get(2))).calculate();
 	}
 
 	private boolean isNotValidRectangle(List<Coordinate> elements) {
@@ -36,7 +37,7 @@ public class Rectangle extends Coordinates {
 
 	@Override
 	public double calculate() {
-		return width * (double)height;
+		return width * height;
 	}
 
 	@Override
