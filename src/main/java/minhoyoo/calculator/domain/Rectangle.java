@@ -5,23 +5,28 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class Rectangle extends Coordinates {
+public class Rectangle implements Coordinates {
 	public static final int SIZE = 4;
 
+	private final List<Coordinate> elements;
 	private final double width;
 	private final double height;
 
 	protected Rectangle(List<Coordinate> elements) {
-		super(elements);
-
 		Collections.sort(elements);
 
 		if (isNotValidRectangle(elements)) {
 			throw new IllegalArgumentException("직사각형의 좌표가 아닙니다.");
 		}
 
+		this.elements = elements;
 		width = new Line(Arrays.asList(elements.get(0), elements.get(1))).calculate();
 		height = new Line(Arrays.asList(elements.get(0), elements.get(2))).calculate();
+	}
+
+	@Override
+	public List<Coordinate> getElements() {
+		return elements;
 	}
 
 	private boolean isNotValidRectangle(List<Coordinate> elements) {
@@ -46,14 +51,14 @@ public class Rectangle extends Coordinates {
 			return true;
 		if (o == null || getClass() != o.getClass())
 			return false;
-		if (!super.equals(o))
-			return false;
 		Rectangle rectangle = (Rectangle)o;
-		return width == rectangle.width && height == rectangle.height;
+		return Double.compare(rectangle.width, width) == 0
+			&& Double.compare(rectangle.height, height) == 0 && Objects.equals(elements,
+			rectangle.elements);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), width, height);
+		return Objects.hash(elements, width, height);
 	}
 }
