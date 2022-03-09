@@ -11,4 +11,8 @@ public class Output {
 	public static void printErrorMessage(String message) {
 		System.out.println(message);
 	}
+
+	public static void printCoordinates(String coordinatesView) {
+		System.out.println(coordinatesView);
+	}
 }

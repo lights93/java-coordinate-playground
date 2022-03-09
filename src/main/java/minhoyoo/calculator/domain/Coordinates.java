@@ -28,4 +28,8 @@ public class Coordinates {
 	public int hashCode() {
 		return Objects.hash(elements);
 	}
+
+	public List<Coordinate> getElements() {
+		return elements;
+	}
 }
