@@ -15,9 +15,9 @@ public class Triangle extends AbstractFigure {
 		checkValid(points);
 
 		lengths = Arrays.asList(
-			new Line(Arrays.asList(points.get(0), points.get(1))).calculate(),
-			new Line(Arrays.asList(points.get(1), points.get(2))).calculate(),
-			new Line(Arrays.asList(points.get(0), points.get(2))).calculate()
+			points.get(0).calculateDistance(points.get(1)),
+			points.get(1).calculateDistance(points.get(2)),
+			points.get(0).calculateDistance(points.get(2))
 		);
 	}
 

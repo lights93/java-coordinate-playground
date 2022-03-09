@@ -15,7 +15,7 @@ class PointTest {
 	@DisplayName("좌표 제대로 생성되는지 확인")
 	@Test
 	void construct() {
-		Point point = Point.create(1,2);
+		Point point = Point.create(1, 2);
 
 		assertThat(point.getX()).isEqualTo(1);
 		assertThat(point.getY()).isEqualTo(2);
@@ -48,5 +48,38 @@ class PointTest {
 			Point.create(22, 18));
 
 		assertThat(points).isEqualTo(expected);
+	}
+
+	@DisplayName("x값이 일치한다.")
+	@Test
+	void isSameX() {
+		Point point1 = Point.create(10, 10);
+		Point point2 = Point.create(22, 10);
+
+		assertThat(point1.isSameX(point2)).isFalse();
+
+		point2 = Point.create(10, 11);
+		assertThat(point1.isSameX(point2)).isTrue();
+	}
+
+	@DisplayName("거리를 계산한다.")
+	@Test
+	void calculateDistance() {
+		Point point1 = Point.create(10, 10);
+		Point point2 = Point.create(11, 11);
+
+		assertThat(point1.calculateDistance(point2)).isEqualTo(1.414, offset(0.00099));
+	}
+
+	@DisplayName("x값이 일치한다.")
+	@Test
+	void isSameY() {
+		Point point1 = Point.create(10, 10);
+		Point point2 = Point.create(22, 11);
+
+		assertThat(point1.isSameY(point2)).isFalse();
+
+		point2 = Point.create(22, 10);
+		assertThat(point1.isSameY(point2)).isTrue();
 	}
 }

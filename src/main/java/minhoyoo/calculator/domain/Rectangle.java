@@ -1,6 +1,5 @@
 package minhoyoo.calculator.domain;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -16,8 +15,8 @@ public class Rectangle extends AbstractFigure {
 		Collections.sort(points);
 
 		checkValid(points);
-		width = new Line(Arrays.asList(points.get(0), points.get(1))).calculate();
-		height = new Line(Arrays.asList(points.get(0), points.get(2))).calculate();
+		width = points.get(0).calculateDistance(points.get(1));
+		height = points.get(0).calculateDistance(points.get(2));
 	}
 
 	private void checkValid(List<Point> points) {
@@ -25,10 +24,10 @@ public class Rectangle extends AbstractFigure {
 			throw new IllegalArgumentException(SIZE + "개의 좌표가 아닙니다.");
 		}
 
-		if (!(points.get(0).getX() == points.get(1).getX()
-			&& points.get(2).getX() == points.get(3).getX()
-			&& points.get(0).getY() == points.get(2).getY()
-			&& points.get(1).getY() == points.get(3).getY())) {
+		if (!(getPoints().get(0).isSameX(getPoints().get(1)) &&
+			getPoints().get(2).isSameX(getPoints().get(3)) &&
+			getPoints().get(0).isSameY(getPoints().get(2)) &&
+			getPoints().get(1).isSameY(getPoints().get(3)))) {
 			throw new IllegalArgumentException("직사각형의 좌표가 아닙니다.");
 		}
 	}

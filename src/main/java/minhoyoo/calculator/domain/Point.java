@@ -33,6 +33,22 @@ public class Point implements Comparable<Point> {
 		return y;
 	}
 
+	public int getDiffBetweenX(Point that) {
+		return Math.abs(this.x - that.x);
+	}
+
+	public boolean isSameX(Point that) {
+		return this.x == that.x;
+	}
+
+	public int getDiffBetweenY(Point that) {
+		return Math.abs(this.y - that.y);
+	}
+
+	public boolean isSameY(Point that) {
+		return this.y == that.y;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -55,5 +71,10 @@ public class Point implements Comparable<Point> {
 		}
 
 		return Integer.compare(this.y, that.y);
+	}
+
+	public double calculateDistance(Point that) {
+		return Math.sqrt(Math.pow(Math.abs(this.x - that.x), 2) +
+			Math.pow(Math.abs(this.y - that.y), 2));
 	}
 }

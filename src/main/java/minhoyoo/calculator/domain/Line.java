@@ -18,7 +18,6 @@ public class Line extends AbstractFigure {
 
 	@Override
 	public double calculate() {
-		return Math.sqrt(Math.pow(Math.abs(getPoints().get(0).getX() - getPoints().get(1).getX()), 2) +
-			Math.pow(Math.abs(getPoints().get(0).getY() - getPoints().get(1).getY()), 2));
+		return getPoints().get(0).calculateDistance(getPoints().get(1));
 	}
 }
