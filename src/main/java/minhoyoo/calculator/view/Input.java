@@ -1,4 +1,4 @@
-package minhoyoo.calculator.common;
+package minhoyoo.calculator.view;
 
 import java.util.Scanner;
 

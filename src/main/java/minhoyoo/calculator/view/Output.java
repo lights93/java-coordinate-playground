@@ -1,4 +1,4 @@
-package minhoyoo.calculator.common;
+package minhoyoo.calculator.view;
 
 public class Output {
 	private Output() {
