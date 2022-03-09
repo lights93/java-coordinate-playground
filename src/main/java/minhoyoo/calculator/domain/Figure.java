@@ -5,5 +5,5 @@ import java.util.List;
 public interface Figure {
 	double calculate();
 
-	List<Coordinate> getElements();
+	List<Coordinate> getCoordinates();
 }

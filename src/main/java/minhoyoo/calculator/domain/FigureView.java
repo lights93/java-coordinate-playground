@@ -32,7 +32,7 @@ public class FigureView {
 	public static String create(Figure figure) {
 		StringBuilder stringBuilder = new StringBuilder(DEFAULT_VIEW);
 
-		for (Coordinate coordinate : figure.getElements()) {
+		for (Coordinate coordinate : figure.getCoordinates()) {
 			int start = LEFT_TOP
 				+ ONE_LINE_SIZE * BLOCK_SIZE * (MAX_VALUE - coordinate.getY())
 				+ BLOCK_SIZE * (coordinate.getX() - 1);
