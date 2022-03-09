@@ -20,4 +20,12 @@ class TriangleTest {
 			.isThrownBy(() -> new Triangle(coordinates))
 			.withMessage("삼각형의 좌표가 아닙니다.");
 	}
+
+	@DisplayName("삼각형 넓이 계산")
+	@Test
+	void calculate() {
+		Triangle triangle = (Triangle)CoordinatesFactory.from("(10,10)-(14,15)-(20,8)");
+
+		assertThat(triangle.calculate()).isEqualTo(29.0, offset(0.00099));
+	}
 }
