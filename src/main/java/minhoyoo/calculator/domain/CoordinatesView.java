@@ -42,4 +42,15 @@ public class CoordinatesView {
 		return stringBuilder.toString();
 	}
 
+	public static String makeResultMessage(Coordinates coordinates) {
+		if (coordinates instanceof Line) {
+			return String.format("두 점 사이의 거리는 %.6f", coordinates.calculate());
+		}
+
+		if (coordinates instanceof Rectangle) {
+			return String.format("사각형 넓이는 %.0f", coordinates.calculate());
+		}
+
+		return null;
+	}
 }

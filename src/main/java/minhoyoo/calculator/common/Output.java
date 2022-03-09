@@ -16,7 +16,8 @@ public class Output {
 		System.out.println(coordinatesView);
 	}
 
-	public static void printResult(double result) {
-		System.out.printf("%n두 점 사이의 거리는 %.6f%n", result);
+	public static void printResult(String result) {
+		System.out.println();
+		System.out.println(result);
 	}
 }
