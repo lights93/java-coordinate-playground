@@ -4,22 +4,27 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CoordinatesParser {
+public class CoordinatesFactory {
 	private static final String COORDINATE_SEPARATOR = "-";
 	private static final String POINT_SEPARATOR = ",";
+	public static final int LINE_SIZE = 2;
 
-	private CoordinatesParser() {
+	private CoordinatesFactory() {
 	}
 
-	public static Coordinates parse(String input) {
+	public static Coordinates from(String input) {
 		String[] split = input.split(COORDINATE_SEPARATOR);
+		if(split.length == LINE_SIZE) {
+			return Coordinates.from(parseCoordinates(split));
+		}
 
-		return Coordinates.from(parseCoordinates(split));
+		throw new IllegalArgumentException("잘못된 좌표 개수 입니다.");
+
 	}
 
 	private static List<Coordinate> parseCoordinates(String[] split) {
 		return Arrays.stream(split)
-			.map(CoordinatesParser::parseCoordinate)
+			.map(CoordinatesFactory::parseCoordinate)
 			.collect(Collectors.toList());
 	}
 

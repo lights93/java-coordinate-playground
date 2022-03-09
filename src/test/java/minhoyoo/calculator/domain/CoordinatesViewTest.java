@@ -9,7 +9,7 @@ class CoordinatesViewTest {
 	@DisplayName("좌표 찍기")
 	@Test
 	void create() {
-		Coordinates coordinates = CoordinatesParser.parse("(2,23)-(3,22)");
+		Coordinates coordinates = CoordinatesFactory.from("(2,23)-(3,22)");
 
 		String actual = CoordinatesView.create(coordinates);
 
