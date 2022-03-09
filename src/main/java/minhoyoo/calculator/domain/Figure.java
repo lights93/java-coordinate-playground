@@ -5,7 +5,7 @@ import java.util.List;
 public interface Figure {
 	double calculate();
 
-	List<Coordinate> getCoordinates();
-
 	int size();
+
+	List<Point> getPoints();
 }

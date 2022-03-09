@@ -42,13 +42,13 @@ public class FigureView {
 		return figureToFormat;
 	}
 
-	public static String create(Figure figure) {
+	public static String makePlane(Figure figure) {
 		StringBuilder stringBuilder = new StringBuilder(DEFAULT_VIEW);
 
-		for (Coordinate coordinate : figure.getCoordinates()) {
+		for (Point point : figure.getPoints()) {
 			int start = LEFT_TOP
-				+ ONE_LINE_SIZE * BLOCK_SIZE * (MAX_VALUE - coordinate.getY())
-				+ BLOCK_SIZE * (coordinate.getX() - 1);
+				+ ONE_LINE_SIZE * BLOCK_SIZE * (MAX_VALUE - point.getY())
+				+ BLOCK_SIZE * (point.getX() - 1);
 			stringBuilder.replace(start, start + 1, DISPLAY_VALUE);
 		}
 

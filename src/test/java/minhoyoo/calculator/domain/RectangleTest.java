@@ -12,13 +12,13 @@ class RectangleTest {
 	@DisplayName("사각형 생성 에러")
 	@Test
 	void constructError() {
-		List<Coordinate> coordinates = Arrays.asList(
-			Coordinate.create(10, 10),
-			Coordinate.create(10, 11),
-			Coordinate.create(10, 18));
+		List<Point> points = Arrays.asList(
+			Point.create(10, 10),
+			Point.create(10, 11),
+			Point.create(10, 18));
 
 		assertThatExceptionOfType(IllegalArgumentException.class)
-			.isThrownBy(() -> new Rectangle(coordinates))
+			.isThrownBy(() -> new Rectangle(points))
 			.withMessage("4개의 좌표가 아닙니다.");
 	}
 

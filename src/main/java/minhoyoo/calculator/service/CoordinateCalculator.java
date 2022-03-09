@@ -12,14 +12,14 @@ public class CoordinateCalculator {
 
 	public static void calculate() {
 		Figure figure = getFigure();
-		Output.printFigureView(FigureView.create(figure));
+		Output.printFigurePlane(FigureView.makePlane(figure));
 		Output.printResult(FigureView.makeResultMessage(figure));
 	}
 
 	private static Figure getFigure() {
 		try {
-			Output.askCoordinates();
-			return FigureFactory.from(Input.getCoordinates());
+			Output.askPoints();
+			return FigureFactory.from(Input.getPoints());
 		} catch (IllegalArgumentException e) {
 			Output.printErrorMessage(e.getMessage());
 			return getFigure();

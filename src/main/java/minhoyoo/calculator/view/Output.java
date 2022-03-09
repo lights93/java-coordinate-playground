@@ -4,7 +4,7 @@ public class Output {
 	private Output() {
 	}
 
-	public static void askCoordinates() {
+	public static void askPoints() {
 		System.out.println("좌표를 입력하세요");
 	}
 
@@ -12,8 +12,8 @@ public class Output {
 		System.out.println(message);
 	}
 
-	public static void printFigureView(String figureView) {
-		System.out.println(figureView);
+	public static void printFigurePlane(String plain) {
+		System.out.println(plain);
 	}
 
 	public static void printResult(String result) {

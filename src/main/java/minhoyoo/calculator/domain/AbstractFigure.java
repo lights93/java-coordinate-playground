@@ -4,19 +4,19 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class AbstractFigure implements Figure {
-	private final List<Coordinate> coordinates;
+	private final List<Point> points;
 
-	protected AbstractFigure(List<Coordinate> coordinates) {
-		if (coordinates.size() != size()) {
+	protected AbstractFigure(List<Point> points) {
+		if (points.size() != size()) {
 			throw new IllegalArgumentException(size() + "개의 좌표가 아닙니다.");
 		}
 
-		this.coordinates = coordinates;
+		this.points = points;
 	}
 
 	@Override
-	public List<Coordinate> getCoordinates() {
-		return coordinates;
+	public List<Point> getPoints() {
+		return points;
 	}
 
 	@Override
@@ -26,11 +26,11 @@ public abstract class AbstractFigure implements Figure {
 		if (o == null || getClass() != o.getClass())
 			return false;
 		AbstractFigure that = (AbstractFigure)o;
-		return Objects.equals(coordinates, that.coordinates);
+		return Objects.equals(points, that.points);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(coordinates);
+		return Objects.hash(points);
 	}
 }

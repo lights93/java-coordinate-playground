@@ -8,7 +8,7 @@ public class Input {
 	private Input() {
 	}
 
-	public static String getCoordinates() {
+	public static String getPoints() {
 		return scanner.nextLine().replaceAll("\\s+", "");
 	}
 }

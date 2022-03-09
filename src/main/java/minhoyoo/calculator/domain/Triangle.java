@@ -9,13 +9,13 @@ public class Triangle extends AbstractFigure {
 
 	private final List<Double> lengths;
 
-	public Triangle(List<Coordinate> coordinates) {
-		super(coordinates);
+	public Triangle(List<Point> points) {
+		super(points);
 
 		lengths = Arrays.asList(
-			new Line(Arrays.asList(coordinates.get(0), coordinates.get(1))).calculate(),
-			new Line(Arrays.asList(coordinates.get(1), coordinates.get(2))).calculate(),
-			new Line(Arrays.asList(coordinates.get(0), coordinates.get(2))).calculate()
+			new Line(Arrays.asList(points.get(0), points.get(1))).calculate(),
+			new Line(Arrays.asList(points.get(1), points.get(2))).calculate(),
+			new Line(Arrays.asList(points.get(0), points.get(2))).calculate()
 		);
 	}
 

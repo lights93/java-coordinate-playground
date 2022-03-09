@@ -2,21 +2,21 @@ package minhoyoo.calculator.domain;
 
 import java.util.Objects;
 
-public class Coordinate implements Comparable<Coordinate> {
+public class Point implements Comparable<Point> {
 	private static final int MIN_VALUE = 1;
 	private static final int MAX_VALUE = 24;
 	private final int x;
 	private final int y;
 
-	private Coordinate(int x, int y) {
+	private Point(int x, int y) {
 		checkValue(x);
 		checkValue(y);
 		this.x = x;
 		this.y = y;
 	}
 
-	public static Coordinate create(int x, int y) {
-		return new Coordinate(x, y);
+	public static Point create(int x, int y) {
+		return new Point(x, y);
 	}
 
 	private void checkValue(int val) {
@@ -39,7 +39,7 @@ public class Coordinate implements Comparable<Coordinate> {
 			return true;
 		if (o == null || getClass() != o.getClass())
 			return false;
-		Coordinate that = (Coordinate)o;
+		Point that = (Point)o;
 		return x == that.x && y == that.y;
 	}
 
@@ -49,7 +49,7 @@ public class Coordinate implements Comparable<Coordinate> {
 	}
 
 	@Override
-	public int compareTo(Coordinate that) {
+	public int compareTo(Point that) {
 		if (this.x != that.x) {
 			return Integer.compare(this.x, that.x);
 		}

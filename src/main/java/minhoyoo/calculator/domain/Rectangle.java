@@ -11,20 +11,20 @@ public class Rectangle extends AbstractFigure {
 	private final double width;
 	private final double height;
 
-	protected Rectangle(List<Coordinate> coordinates) {
-		super(coordinates);
-		Collections.sort(coordinates);
+	protected Rectangle(List<Point> points) {
+		super(points);
+		Collections.sort(points);
 
-		checkValid(coordinates);
-		width = new Line(Arrays.asList(coordinates.get(0), coordinates.get(1))).calculate();
-		height = new Line(Arrays.asList(coordinates.get(0), coordinates.get(2))).calculate();
+		checkValid(points);
+		width = new Line(Arrays.asList(points.get(0), points.get(1))).calculate();
+		height = new Line(Arrays.asList(points.get(0), points.get(2))).calculate();
 	}
 
-	private void checkValid(List<Coordinate> coordinates) {
-		if (!(coordinates.get(0).getX() == coordinates.get(1).getX()
-			&& coordinates.get(2).getX() == coordinates.get(3).getX()
-			&& coordinates.get(0).getY() == coordinates.get(2).getY()
-			&& coordinates.get(1).getY() == coordinates.get(3).getY())) {
+	private void checkValid(List<Point> points) {
+		if (!(points.get(0).getX() == points.get(1).getX()
+			&& points.get(2).getX() == points.get(3).getX()
+			&& points.get(0).getY() == points.get(2).getY()
+			&& points.get(1).getY() == points.get(3).getY())) {
 			throw new IllegalArgumentException("직사각형의 좌표가 아닙니다.");
 		}
 	}

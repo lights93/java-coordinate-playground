@@ -17,7 +17,7 @@ class FigureFactoryTest {
 		Figure actual = FigureFactory.from("(10,10)-(14,15)");
 
 		assertThat(actual)
-			.isEqualTo(new Line(Arrays.asList(Coordinate.create(10, 10), Coordinate.create(14, 15))));
+			.isEqualTo(new Line(Arrays.asList(Point.create(10, 10), Point.create(14, 15))));
 	}
 
 	@DisplayName("문자열을 사각형으로 변환")
@@ -27,10 +27,10 @@ class FigureFactoryTest {
 
 		assertThat(actual)
 			.isEqualTo(new Rectangle(Arrays.asList(
-				Coordinate.create(10, 10),
-				Coordinate.create(22, 10),
-				Coordinate.create(22, 18),
-				Coordinate.create(10, 18))));
+				Point.create(10, 10),
+				Point.create(22, 10),
+				Point.create(22, 18),
+				Point.create(10, 18))));
 	}
 
 	@DisplayName("문자열을 삼각형으로 변환")
@@ -40,9 +40,9 @@ class FigureFactoryTest {
 
 		assertThat(actual)
 			.isEqualTo(new Triangle(Arrays.asList(
-				Coordinate.create(10, 10),
-				Coordinate.create(22, 18),
-				Coordinate.create(10, 18))));
+				Point.create(10, 10),
+				Point.create(22, 18),
+				Point.create(10, 18))));
 	}
 
 	@DisplayName("문자열을 좌표로 변환시 에러 발생")

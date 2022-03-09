@@ -11,7 +11,7 @@ class FigureViewTest {
 	void create() {
 		Figure figure = FigureFactory.from("(2,23)-(3,22)");
 
-		String actual = FigureView.create(figure);
+		String actual = FigureView.makePlane(figure);
 
 		String expected = "  |                                                                        \n"
 			+ "24|                                                                        \n"
