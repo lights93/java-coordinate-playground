@@ -9,7 +9,12 @@ public class Application {
 	}
 
 	private static String getCoordinates() {
-		Output.askCoordinates();
-		return Input.getCoordinates();
+		try {
+			Output.askCoordinates();
+			return Input.getCoordinates();
+		} catch (IllegalArgumentException e) {
+			Output.printErrorMessage(e.getMessage());
+			return getCoordinates();
+		}
 	}
 }
