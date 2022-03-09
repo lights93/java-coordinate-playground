@@ -9,6 +9,6 @@ public class Input {
 	}
 
 	public static String getCoordinates() {
-		return scanner.nextLine();
+		return scanner.nextLine().replaceAll("\\s+", "");
 	}
 }
