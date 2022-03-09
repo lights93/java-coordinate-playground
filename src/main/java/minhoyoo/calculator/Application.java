@@ -10,6 +10,8 @@ public class Application {
 	public static void main(String[] args) {
 		Coordinates coordinates = getCoordinates();
 		Output.printCoordinates(CoordinatesView.create(coordinates));
+		double result = coordinates.calculate();
+		Output.printResult(result);
 	}
 
 	private static Coordinates getCoordinates() {
