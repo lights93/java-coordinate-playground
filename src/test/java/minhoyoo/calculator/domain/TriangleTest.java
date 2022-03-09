@@ -18,7 +18,7 @@ class TriangleTest {
 
 		assertThatExceptionOfType(IllegalArgumentException.class)
 			.isThrownBy(() -> new Triangle(coordinates))
-			.withMessage("삼각형의 좌표가 아닙니다.");
+			.withMessage("3개의 좌표가 아닙니다.");
 	}
 
 	@DisplayName("삼각형 넓이 계산")

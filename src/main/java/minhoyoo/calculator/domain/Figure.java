@@ -6,4 +6,6 @@ public interface Figure {
 	double calculate();
 
 	List<Coordinate> getCoordinates();
+
+	int size();
 }

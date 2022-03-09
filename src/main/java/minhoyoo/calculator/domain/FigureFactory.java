@@ -13,15 +13,15 @@ public class FigureFactory {
 
 	public static Figure from(String coordinates) {
 		String[] split = coordinates.split(COORDINATE_SEPARATOR);
-		if (split.length == Line.SIZE) {
+		if (split.length == Line.LINE_SIZE) {
 			return new Line(parseCoordinates(split));
 		}
 
-		if (split.length == Rectangle.SIZE) {
+		if (split.length == Rectangle.RECTANGLE_SIZE) {
 			return new Rectangle(parseCoordinates(split));
 		}
 
-		if (split.length == Triangle.SIZE) {
+		if (split.length == Triangle.TRIANGLE_SIZE) {
 			return new Triangle(parseCoordinates(split));
 		}
 
