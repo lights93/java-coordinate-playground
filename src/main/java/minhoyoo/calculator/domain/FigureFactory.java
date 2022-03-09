@@ -12,6 +12,9 @@ public class FigureFactory {
 	private static final String POINT_SEPARATOR = ",";
 	private static final Map<Integer, Function<List<Coordinate>, Figure>> SIZE_TO_FIGURE = sizeToFigure();
 
+	private FigureFactory() {
+	}
+
 	private static Map<Integer, Function<List<Coordinate>, Figure>> sizeToFigure() {
 		Map<Integer, Function<List<Coordinate>, Figure>> sizeToFigure = new HashMap<>();
 
@@ -20,9 +23,6 @@ public class FigureFactory {
 		sizeToFigure.put(Triangle.TRIANGLE_SIZE, Triangle::new);
 
 		return sizeToFigure;
-	}
-
-	private FigureFactory() {
 	}
 
 	public static Figure from(String coordinates) {

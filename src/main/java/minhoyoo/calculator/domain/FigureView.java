@@ -12,15 +12,6 @@ public class FigureView {
 	public static final String DISPLAY_VALUE = "*";
 	private static final Map<Class<? extends Figure>, String> FIGURE_TO_FORMAT = figureToFormat();
 
-	private static Map<Class<? extends Figure>, String> figureToFormat() {
-		Map<Class<? extends Figure>, String> figureToFormat = new HashMap<>();
-		figureToFormat.put(Line.class, "두 점 사이의 거리는 %.6f");
-		figureToFormat.put(Rectangle.class, "사각형 넓이는 %.0f");
-		figureToFormat.put(Triangle.class, "삼각형 넓이는 %.1f");
-
-		return figureToFormat;
-	}
-
 	private FigureView() {
 	}
 
@@ -40,6 +31,15 @@ public class FigureView {
 		}
 
 		return stringBuilder.toString();
+	}
+
+	private static Map<Class<? extends Figure>, String> figureToFormat() {
+		Map<Class<? extends Figure>, String> figureToFormat = new HashMap<>();
+		figureToFormat.put(Line.class, "두 점 사이의 거리는 %.6f");
+		figureToFormat.put(Rectangle.class, "사각형 넓이는 %.0f");
+		figureToFormat.put(Triangle.class, "삼각형 넓이는 %.1f");
+
+		return figureToFormat;
 	}
 
 	public static String create(Figure figure) {

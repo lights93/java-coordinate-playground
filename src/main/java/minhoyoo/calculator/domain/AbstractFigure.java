@@ -12,7 +12,6 @@ public abstract class AbstractFigure implements Figure {
 		}
 
 		this.coordinates = coordinates;
-
 	}
 
 	@Override

@@ -20,16 +20,16 @@ public class Triangle extends AbstractFigure {
 	}
 
 	@Override
+	public int size() {
+		return TRIANGLE_SIZE;
+	}
+
+	@Override
 	public double calculate() {
 		double halfSum = lengths.stream().mapToDouble(i -> i / 2).sum();
 
 		return Math.sqrt(
 			halfSum * (halfSum - lengths.get(0)) * (halfSum - lengths.get(1)) * (halfSum - lengths.get(2)));
-	}
-
-	@Override
-	public int size() {
-		return TRIANGLE_SIZE;
 	}
 
 	@Override

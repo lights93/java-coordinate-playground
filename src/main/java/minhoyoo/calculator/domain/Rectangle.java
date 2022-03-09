@@ -20,11 +20,6 @@ public class Rectangle extends AbstractFigure {
 		height = new Line(Arrays.asList(coordinates.get(0), coordinates.get(2))).calculate();
 	}
 
-	@Override
-	public int size() {
-		return RECTANGLE_SIZE;
-	}
-
 	private void checkValid(List<Coordinate> coordinates) {
 		if (!(coordinates.get(0).getX() == coordinates.get(1).getX()
 			&& coordinates.get(2).getX() == coordinates.get(3).getX()
@@ -32,6 +27,11 @@ public class Rectangle extends AbstractFigure {
 			&& coordinates.get(1).getY() == coordinates.get(3).getY())) {
 			throw new IllegalArgumentException("직사각형의 좌표가 아닙니다.");
 		}
+	}
+
+	@Override
+	public int size() {
+		return RECTANGLE_SIZE;
 	}
 
 	@Override
