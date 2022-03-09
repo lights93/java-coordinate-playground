@@ -33,6 +33,18 @@ class CoordinatesFactoryTest {
 				Coordinate.create(10, 18))));
 	}
 
+	@DisplayName("문자열을 삼각형으로 변환")
+	@Test
+	void createTriangle() {
+		Coordinates actual = CoordinatesFactory.from("(10,10)-(22,18)-(10,18)");
+
+		assertThat(actual)
+			.isEqualTo(new Triangle(Arrays.asList(
+				Coordinate.create(10, 10),
+				Coordinate.create(22, 18),
+				Coordinate.create(10, 18))));
+	}
+
 	@DisplayName("문자열을 좌표로 변환시 에러 발생")
 	@ParameterizedTest
 	@EmptySource

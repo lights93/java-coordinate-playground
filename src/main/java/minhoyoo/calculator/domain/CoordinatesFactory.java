@@ -21,8 +21,11 @@ public class CoordinatesFactory {
 			return new Rectangle(parseCoordinates(split));
 		}
 
-		throw new IllegalArgumentException("잘못된 좌표 개수 입니다.");
+		if (split.length == Triangle.SIZE) {
+			return new Triangle(parseCoordinates(split));
+		}
 
+		throw new IllegalArgumentException("잘못된 좌표 개수 입니다.");
 	}
 
 	private static List<Coordinate> parseCoordinates(String[] split) {
