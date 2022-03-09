@@ -1,6 +1,6 @@
 package study;
 
-public class K5 extends Car {
+public class K5 implements Car {
 	private static final double DISTANCE_PER_LITER = 13;
 	private final double tripDistance;
 
@@ -9,17 +9,17 @@ public class K5 extends Car {
 	}
 
 	@Override
-	double getDistancePerLiter() {
+	public double getDistancePerLiter() {
 		return DISTANCE_PER_LITER;
 	}
 
 	@Override
-	double getTripDistance() {
+	public double getTripDistance() {
 		return tripDistance;
 	}
 
 	@Override
-	String getName() {
+	public String getName() {
 		return getClass().getSimpleName();
 	}
 }
