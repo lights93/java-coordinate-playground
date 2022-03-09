@@ -36,7 +36,7 @@ public class Rectangle extends Coordinates {
 
 	@Override
 	public double calculate() {
-		return 0;
+		return width * (double)height;
 	}
 
 	@Override
