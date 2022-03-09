@@ -1,31 +1,37 @@
 package minhoyoo.calculator.domain;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FigureFactory {
 	private static final String COORDINATE_SEPARATOR = "-";
 	private static final String POINT_SEPARATOR = ",";
+	private static final Map<Integer, Function<List<Coordinate>, Figure>> SIZE_TO_FIGURE = sizeToFigure();
+
+	private static Map<Integer, Function<List<Coordinate>, Figure>> sizeToFigure() {
+		Map<Integer, Function<List<Coordinate>, Figure>> sizeToFigure = new HashMap<>();
+
+		sizeToFigure.put(Line.LINE_SIZE, Line::new);
+		sizeToFigure.put(Rectangle.RECTANGLE_SIZE, Rectangle::new);
+		sizeToFigure.put(Triangle.TRIANGLE_SIZE, Triangle::new);
+
+		return sizeToFigure;
+	}
 
 	private FigureFactory() {
 	}
 
 	public static Figure from(String coordinates) {
 		String[] split = coordinates.split(COORDINATE_SEPARATOR);
-		if (split.length == Line.LINE_SIZE) {
-			return new Line(parseCoordinates(split));
+		if (!SIZE_TO_FIGURE.containsKey(split.length)) {
+			throw new IllegalArgumentException("잘못된 좌표 개수 입니다.");
 		}
 
-		if (split.length == Rectangle.RECTANGLE_SIZE) {
-			return new Rectangle(parseCoordinates(split));
-		}
-
-		if (split.length == Triangle.TRIANGLE_SIZE) {
-			return new Triangle(parseCoordinates(split));
-		}
-
-		throw new IllegalArgumentException("잘못된 좌표 개수 입니다.");
+		return SIZE_TO_FIGURE.get(split.length).apply(parseCoordinates(split));
 	}
 
 	private static List<Coordinate> parseCoordinates(String[] split) {

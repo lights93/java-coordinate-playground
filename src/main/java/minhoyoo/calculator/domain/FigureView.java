@@ -1,5 +1,8 @@
 package minhoyoo.calculator.domain;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FigureView {
 	private static final int MAX_VALUE = 24;
 	private static final int ONE_LINE_SIZE = 76;
@@ -7,6 +10,16 @@ public class FigureView {
 	public static final int BLOCK_SIZE = 3;
 	public static final int LEFT_TOP = 80;
 	public static final String DISPLAY_VALUE = "*";
+	private static final Map<Class<? extends Figure>, String> FIGURE_TO_FORMAT = figureToFormat();
+
+	private static Map<Class<? extends Figure>, String> figureToFormat() {
+		Map<Class<? extends Figure>, String> figureToFormat = new HashMap<>();
+		figureToFormat.put(Line.class, "두 점 사이의 거리는 %.6f");
+		figureToFormat.put(Rectangle.class, "사각형 넓이는 %.0f");
+		figureToFormat.put(Triangle.class, "삼각형 넓이는 %.1f");
+
+		return figureToFormat;
+	}
 
 	private FigureView() {
 	}
@@ -43,18 +56,10 @@ public class FigureView {
 	}
 
 	public static String makeResultMessage(Figure figure) {
-		if (figure instanceof Line) {
-			return String.format("두 점 사이의 거리는 %.6f", figure.calculate());
+		if (!FIGURE_TO_FORMAT.containsKey(figure.getClass())) {
+			throw new IllegalArgumentException("잘못된 타입입니다.");
 		}
 
-		if (figure instanceof Rectangle) {
-			return String.format("사각형 넓이는 %.0f", figure.calculate());
-		}
-
-		if (figure instanceof Triangle) {
-			return String.format("삼각형 넓이는 %.1f", figure.calculate());
-		}
-
-		throw new IllegalArgumentException();
+		return String.format(FIGURE_TO_FORMAT.get(figure.getClass()), figure.calculate());
 	}
 }
