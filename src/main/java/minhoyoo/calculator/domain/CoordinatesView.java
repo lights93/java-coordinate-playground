@@ -20,7 +20,7 @@ public class CoordinatesView {
 			stringBuilder.append("  |                                                                        \n");
 		}
 
-		stringBuilder.append("  +                                                \n");
+		stringBuilder.append("  +------------------------------------------------------------------------\n");
 		stringBuilder.append(" 0 ");
 		for (int i = 1; i <= MAX_VALUE; i++) {
 			stringBuilder.append(String.format("%2d ", i));
